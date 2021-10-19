@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinForms.BLE"
+             x:Class="XamarinForms.BLE.MainPage">
+
+    <StackLayout Padding="10">
+        <Button Text="Search" Clicked="SearchDevice"></Button>
+        <ListView x:Name="DevicesList" IsPullToRefreshEnabled="True" CachingStrategy="RecycleElement"
+                  ItemSelected="DevicesList_OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding NativeDevice.Name}" />
+                            <Label Text="{Binding NativeDevice.Address}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
